@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "louie-cipher",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "glob": "^8.0.3"
+  }
 }
