@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "npm install && node index.js"
   },
   "keywords": [],
   "author": "louie-cipher",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.0.2",
     "glob": "^8.0.3"
   }
 }
