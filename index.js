@@ -1,8 +1,7 @@
 const fs = require('fs');
 const glob = require('glob');
-require('dotenv').config();
 
-const { oldRM, newRM } = process.env;
+const { oldRM, newRM } = require('./config.json');
 
 fs.renameSync(`./${oldRM}`, `./${newRM}`);
 
