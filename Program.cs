@@ -13,12 +13,26 @@ namespace FilesRenamer
             if (!Directory.Exists(oldRM))
             {
                 Console.WriteLine($"A pasta do RM atual fornecida \"{oldRM}\" não existe");
-                Console.WriteLine($"Certifique-se de que a pasta \"{oldRM}\" está no mesmo diretório deste programa");
+                Console.WriteLine($"Certifique-se de que a pasta \"{oldRM}\" contendo o(s) projeto(s) está no mesmo diretório deste executável");
                 return;
             }
 
             Console.Write("Especifique o RM novo: ");
             string newRM = Console.ReadLine();
+
+            if (Directory.Exists(newRM))
+            {
+                Console.WriteLine($"A pasta do RM novo fornecida \"{newRM}\" já existe. O que você deseja fazer?" +
+                $"\n 1 - Renomear a pasta \"{newRM}\" para \"{newRM}(1)\"" +
+                $"\n 2 - Apagar a pasta \"{newRM}\"" +
+                $"\n 3 - Cancelar a operação\n" +
+                $"\nDigite o número da opção desejada: ");
+                string option = Console.ReadLine().ToUpper();
+
+                if (option == "1") Directory.Move(newRM, newRM + "(1)");
+                else if (option == "2") Directory.Delete(newRM, true);
+                else return;
+            }
 
             foreach (string file in Directory.GetFiles(oldRM, "*", SearchOption.AllDirectories))
             {
